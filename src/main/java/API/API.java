@@ -5,15 +5,25 @@ import java.util.*;
 import java.io.*;  // Import the File class
 import java.nio.file.*;
 
-
+/**
+ A class used to deal with Topolgoies (reading & writing from,to  files & memory)
+ */
 public class API {
     static ArrayList<Topology> memory = new ArrayList<Topology>();
 
+    /**
+     adds a topology to the memory.
+     @param top the handle of the Topology to be loaded
+     */
     static public void addTop(Topology top){
         memory.add(top);
     }
 
-
+    /**
+     creates a Topology object from the json file provided and adds it to the memory
+     @param fileName the filename of the json file to be loaded
+     @return a topology created from the file
+     */
     static public Topology readJSON(String fileName)throws Exception{
         String data = "";
         data = new String(Files.readAllBytes(Paths.get(fileName)));
@@ -52,6 +62,11 @@ public class API {
         return currentTop;
     }
 
+
+    /**
+     converts a topolgy from the memory into a json file
+     @param id the id of the topology to be converted
+     */
     static public void writeJSON(String id){
         JSONObject json = null;
         for(int i=0;i<memory.size();i++){
@@ -74,10 +89,20 @@ public class API {
         }
     }
 
+
+    /**
+     to get topologes from memroy
+     @return ArrayList of Topologies loaded in memory
+     */
     static public ArrayList<Topology> queryTopologies(){
         return memory;
     }
 
+    /**
+     deletes the topology with the given id
+     @param id the id of the topology to be deleted
+     @return the deleted topology
+     */
     static public Topology deleteTopology(String id){
         for(int i=0;i<memory.size();i++){
             if(memory.get(i).getId().equals(id)){
@@ -87,6 +112,11 @@ public class API {
         return null;
     }
 
+    /**
+     gets the list of devices used in a certain topology
+     @param id the id of the desired topology
+     @return ArrayList of  devices used in this topology
+     */
     static public ArrayList<Component> queryDevices(String id){
         for (Topology topology : memory) {
             if (topology.getId().equals(id)) {
@@ -96,6 +126,12 @@ public class API {
         return null;
     }
 
+    /**
+     gets the list of devices connected to a certain node within given topology
+     @param id the id of the topology
+     @param nodeId the id of node
+     @return ArrayList of devices connected to this node in this topology
+     */
     static public ArrayList<Component> queryDevicesWithNetListNode(String id,String nodeId){
         ArrayList<Component> result = new ArrayList<Component>();
         for (Topology topology : memory) {
@@ -117,7 +153,5 @@ public class API {
         }
         return null;
     }
-
-
 
 }
