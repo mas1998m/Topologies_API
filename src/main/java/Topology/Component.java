@@ -16,6 +16,19 @@ abstract public class Component {
         }
     }
 
+    public String getId(){
+        return id;
+    }
+
+    public Parameter getMy_param(){
+        return my_param;
+    }
+
+
+    public  HashMap<String,Node> getMyNetlist(){
+        return netlist;
+    }
+
     abstract public String printInfo();
 
 

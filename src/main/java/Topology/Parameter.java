@@ -1,5 +1,5 @@
 package Topology;
-import java.util.HashMap;
+import java.util.*;
 
 public class Parameter {
 
@@ -23,8 +23,8 @@ public class Parameter {
     public float getMax(){
         return max;
     }
-    public HashMap<String, Float> getAll(){
-        HashMap<String,Float> all = new HashMap<String,Float>();
+    public Map<String, Float> getAll(){
+        HashMap <String,Float> all = new HashMap<String,Float>();
         all.put("default",my_def);
         all.put("min",min);
         all.put("max",max);
