@@ -1,5 +1,6 @@
 package Topology;
 import org.json.*;
+import API.*;
 
 public class Main {
 
@@ -13,11 +14,25 @@ public class Main {
         Topology mytop = new Topology("top1");
         mytop.addComponent(myMos);
         mytop.addComponent(myRes);
+
+
+//        API.addTop(mytop);
+//        API.writeJSON("top1");
+
         JSONObject jo = mytop.topToJSON();
+        try{
+            API.readJSON("top1.json");
+
+        }
+        catch (Exception e){
+
+            System.out.println(e);
+        }
+        API.writeJSON("Readtop");
 
 //        System.out.        System.out.println(myres.printInfo());
 //        println(t1.getConnectedComponents());
-        System.out.println(jo.toString());
+//        System.out.println(jo.toString());
 
 
 

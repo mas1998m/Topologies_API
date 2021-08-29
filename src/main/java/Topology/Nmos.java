@@ -11,14 +11,14 @@ public class Nmos extends Component {
         updateNodes();
     }
 
-    public Nmos(String id, float def, float min, float max,  HashMap<String,Node> netlist){
+    public Nmos(String id, double def, double min, double max,  HashMap<String,Node> netlist){
         this.id = id;
         this.my_param = new Parameter(def,min,max);
         this.netlist = netlist;
         updateNodes();
     }
 
-    public Nmos(String id, float def, float min, float max, Node drain, Node gate,Node source){
+    public Nmos(String id, double def, double min, double max, Node drain, Node gate,Node source){
         this.id = id;
         my_param = new Parameter(def,min,max);
         netlist = new HashMap<String,Node>();
@@ -32,9 +32,9 @@ public class Nmos extends Component {
     public String printInfo(){
         String info;
         String nodes = new String("");
-        float def = my_param.getMy_def();
-        float min = my_param.getMin();
-        float max = my_param.getMax();
+        double def = my_param.getMy_def();
+        double min = my_param.getMin();
+        double max = my_param.getMax();
         Iterator netlistIterator = netlist.entrySet().iterator();
         while(netlistIterator.hasNext()) {
             Map.Entry mapElement = (Map.Entry) netlistIterator.next();

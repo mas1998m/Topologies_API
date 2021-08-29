@@ -13,6 +13,10 @@ public class Topology {
         return newComp;
     }
 
+    public ArrayList<Component> getDevices(){
+        return devices;
+    }
+
     public Topology(String id){
         this.id = id;
 
@@ -53,4 +57,5 @@ public class Topology {
         result.put("components",comps);
         return result;
     }
+
 }

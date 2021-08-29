@@ -3,10 +3,10 @@ import java.util.*;
 
 public class Parameter {
 
-    private float my_def;
-    private float min;
-    private float max;
-    public Parameter(float def,float min,float max){
+    private double my_def;
+    private double min;
+    private double max;
+    public Parameter(double def,double min,double max){
         my_def = def;
         this.min = min;
         this.max = max;
@@ -14,33 +14,33 @@ public class Parameter {
     public Parameter(){
         this(50,1,100);
     }
-    public float getMy_def(){
+    public double getMy_def(){
         return my_def;
     }
-    public float getMin(){
+    public double getMin(){
         return min;
     }
-    public float getMax(){
+    public double getMax(){
         return max;
     }
-    public Map<String, Float> getAll(){
-        HashMap <String,Float> all = new HashMap<String,Float>();
+    public HashMap<String, Double> getAll(){
+        HashMap <String,Double> all = new HashMap<String,Double>();
         all.put("default",my_def);
         all.put("min",min);
         all.put("max",max);
         return all;
     }
 
-    public void setMax(float max) {
+    public void setMax(double max) {
         this.max = max;
     }
-    public void setMin(float min) {
+    public void setMin(double min) {
         this.min = min;
     }
-    public void setMy_def(float my_def) {
+    public void setMy_def(double my_def) {
         this.my_def = my_def;
     }
-    public void setAll(float def,float min,float max){
+    public void setAll(double def,double min,double max){
         this.max = max;
         this.min = min;
         this.my_def = def;
